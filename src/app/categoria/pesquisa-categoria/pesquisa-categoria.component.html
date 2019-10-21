@@ -1,0 +1,43 @@
+<div class="mb-2">
+  <div class="row">
+    <div class="col-12">
+      <h2>Pesquisa categoria</h2>
+      <form  autocomplete="off" (ngSubmit)="pesquisar()">
+        <div class="form-group  col-sm-12 p-0">
+          <label for="nome" class="control-label">Nome</label>
+          <input id="nome" name="nome" [(ngModel)]="filtro.nome" type="text" class="form-control" placeholder="Informe o nome da categoria"/>
+        </div>
+        <input type="submit" class="btn  btn-primary" value="Pesquisar">
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th class="col-acoes"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categoria of categorias">
+          <td scope="col">{{ categoria.nome }}</td>
+          <td class="col-acoes">
+            <a href="#" class="btn  btn-primary  mr-2" ngbTooltip="Editar"><fa-icon [icon]="faPen"></fa-icon></a>
+            <button class="btn  btn-primary" ngbTooltip="Excluir"><fa-icon [icon]="faTrash"></fa-icon></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ngb-pagination [boundaryLinks]=true [collectionSize]="totalElementos" [pageSize]="5" [(page)]="filtro.paginaAtual" (pageChange)="loadPage($event)"></ngb-pagination>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <a class="btn btn-primary" routerLink="/categorias/nova">Nova</a>
+  </div>
+</div>

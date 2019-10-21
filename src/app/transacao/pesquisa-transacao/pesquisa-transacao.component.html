@@ -1,0 +1,85 @@
+<div class="mb-2">
+  <div class="row">
+    <div class="col-12">
+      <h2>Pesquisa de transações</h2>
+    </div>
+  </div>
+
+
+  <form action="#" method="GET">
+    <div class="row">
+      <div class="col-3">
+        <div class="form-group">
+          <label class="control-label" for="data-inicial">Categorias</label>
+          <input type="text" class="form-control " placeholder="Categorias">
+        </div>
+
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label class="control-label" for="data-inicial">Contas</label>
+          <input type="text" class="form-control " placeholder="Contas">
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label class="control-label" for="data-inicial">Data inicial</label>
+          <div class="input-group">
+            <input class="form-control" placeholder="dd/mm/yyyy" name="data-inicial" id="data-inicial" ngbDatepicker [footerTemplate]="footerTemplate" #dataInicial="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn  btn-outline-secondary  calendar" (click)="dataInicial.toggle()" type="button"><fa-icon [icon]="faCalendar"></fa-icon></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+          <div class="form-group">
+            <label class="control-label" for="data-final">Data final</label>
+            <div class="input-group">
+              <input class="form-control" placeholder="dd/mm/yyyy" name="data-final" id="data-final" ngbDatepicker [footerTemplate]="footerTemplate" #dataFinal="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn  btn-outline-secondary  calendar" (click)="dataFinal.toggle()" type="button"><fa-icon [icon]="faCalendar"></fa-icon></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <button type="submit" class="btn  btn-primary" value="pesquisa">Pesquisar</button>
+  </form>
+</div>
+
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transacao of transacoes">
+        <td scope="row">{{ transacao.nome }}</td>
+        <td class="col-acoes">
+          <a href="#" class="btn  btn-primary  mr-2" ngbTooltip="Editar"><fa-icon [icon]="faPen"></fa-icon></a>
+          <button class="btn  btn-primary" ngbTooltip="Excluir"><fa-icon [icon]="faTrash"></fa-icon></button>
+        </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- <div class="d-flex justify-content-between p-2">
+      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+      </ngb-pagination>
+
+      <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+        <option [ngValue]="2">2 items per page</option>
+        <option [ngValue]="4">4 items per page</option>
+        <option [ngValue]="6">6 items per page</option>
+      </select>
+    </div> -->
+
+</div>
+<div class="row">
+    <a class="btn btn-primary" routerLink="/transacoes/nova">Nova</a>
+</div>

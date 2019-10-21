@@ -1,0 +1,41 @@
+<div class="mb-2">
+  <div class="row">
+    <div class="col-12">
+      <h2>Pesquisa conta</h2>
+      <form action="#" method="GET">
+        <div class="form-group  col-sm-12 p-0">
+          <input type="text" class="form-control  mb-2" placeholder="Informe o nome da conta">
+          <button type="submit" class="btn  btn-primary" value="pesquisa">Pesquisar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let conta of contas">
+          <td scope="row">{{ conta.nome }}</td>
+          <td class="col-acoes">
+            <a href="#" class="btn  btn-primary  mr-2" ngbTooltip="Editar"><fa-icon [icon]="faPen"></fa-icon></a>
+            <button class="btn  btn-primary" ngbTooltip="Excluir"><fa-icon [icon]="faTrash"></fa-icon></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <a class="btn btn-primary" routerLink="/contas/nova">Nova</a>
+  </div>
+</div>
