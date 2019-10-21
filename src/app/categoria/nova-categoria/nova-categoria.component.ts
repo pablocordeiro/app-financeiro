@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Categoria } from 'src/app/core/model';
 
 @Component({
   selector: 'app-nova-categoria',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nova-categoria.component.css']
 })
 export class NovaCategoriaComponent implements OnInit {
+
+  categoria = new Categoria();
 
   constructor() { }
 

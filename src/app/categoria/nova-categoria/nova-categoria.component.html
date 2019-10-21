@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12">
-      <form action="#" method="GET">
+      <form #f="ngForm" (ngSubmit)="salvar(f)">
         <h2>Nova Categoria</h2>
         <div class="form-group  col-sm-12 p-0">
           <label for="nome">Nome</label>
